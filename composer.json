@@ -1,0 +1,17 @@
+{
+    "name": "bhcosta90/package-domain",
+    "autoload": {
+        "psr-4": {
+            "Core\\Shared\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Bruno Costa",
+            "email": "bruno.costa@superlogica.com"
+        }
+    ],
+    "require": {
+        "ramsey/uuid": "^4.3"
+    }
+}
