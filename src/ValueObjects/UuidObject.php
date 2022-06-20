@@ -24,7 +24,7 @@ class UuidObject
 
     public static function random(): self
     {
-        return new self(RamseyUuid::uuid4());
+        return new self((string) RamseyUuid::uuid4());
     }
 
     public function __toString(): string
