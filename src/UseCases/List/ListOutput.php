@@ -2,7 +2,7 @@
 
 namespace Core\UseCases\List;
 
-class Output
+class ListOutput
 {
     public function __construct(
         public array $items,

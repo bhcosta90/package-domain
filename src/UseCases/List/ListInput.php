@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Core\UseCases\List;
 
-class Input
+class ListInput
 {
     public function __construct(
         public ?array $filter = null,
