@@ -14,5 +14,6 @@ class ListOutput
         public int $from,
         public int $current_page,
     ) {
+        //
     }
 }
