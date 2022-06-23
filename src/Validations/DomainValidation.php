@@ -23,6 +23,11 @@ class DomainValidation
         !is_null($value) && !empty($value) && self::strMinLength($value, $length, $exceptionMessage);
     }
 
+    public static function strCanNullAndBetweenLength(string|null $value, int $min = 2, int $max = 255, string $exceptionMessage = null)
+    {
+        !is_null($value) && !empty($value) && self::strBetweenLength($value, $min, $max, $exceptionMessage);
+    }
+
     public static function strMaxLength(string $value, int $length = 255, string $exceptionMessage = null)
     {
         if (strlen($value) > $length) {
@@ -34,6 +39,13 @@ class DomainValidation
     {
         if (strlen($value) < $length) {
             throw new Exceptions\DomainValidationException($exceptionMessage ?? "The value must at least {$length} characters");
+        }
+    }
+
+    public static function strBetweenLength(string $value, int $min = 2, int $max = 255, string $exceptionMessage = null)
+    {
+        if (strlen($value) < $min && strlen($value) > $max) {
+            throw new Exceptions\DomainValidationException($exceptionMessage ?? "The value must at between {$min} and {$max} characters");
         }
     }
 

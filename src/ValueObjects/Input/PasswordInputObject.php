@@ -8,15 +8,19 @@ use Core\Shared\Validations\DomainValidation;
 
 class PasswordInputObject
 {
-    public function __construct(public ?string $value, $convert = true, $acceptNull = false)
+    public function __construct(public ?string $value, $convert = true, $acceptNull = false, $field = null)
     {
         if ($convert) {
+
+            $message = null;
+            if (!empty($field)) {
+                $message = "The value {$field} at between 3 and 100 characters";
+            }
+
             if ($acceptNull) {
-                DomainValidation::strCanNullAndMinLength($value, 6);
-                DomainValidation::strCanNullAndMaxLength($value, 18);
+                DomainValidation::strCanNullAndBetweenLength($value, 6, 18, $message);
             } else {
-                DomainValidation::strMinLength($value, 6);
-                DomainValidation::strMaxLength($value, 18);
+                DomainValidation::strBetweenLength($value, 6, 18, $message);
             }
             if (!empty($this->value)) {
                 $this->value = password_hash($this->value, PASSWORD_DEFAULT);

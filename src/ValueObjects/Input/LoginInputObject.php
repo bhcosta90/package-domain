@@ -8,14 +8,17 @@ use Core\Shared\Validations\DomainValidation;
 
 class LoginInputObject
 {
-    public function __construct(public ?string $value, $acceptNull = false)
+    public function __construct(public ?string $value, $acceptNull = false, $field = null)
     {
+        $message = null;
+        if (!empty($field)) {
+            $message = "The value {$field} at between 3 and 100 characters";
+        }
+
         if ($acceptNull) {
-            DomainValidation::strCanNullAndMinLength($value, 3);
-            DomainValidation::strCanNullAndMaxLength($value, 100);
+            DomainValidation::strCanNullAndBetweenLength($value, 3, 100, $message);
         } else {
-            DomainValidation::strMinLength($value, 3);
-            DomainValidation::strMaxLength($value, 100);
+            DomainValidation::strBetweenLength($value, 3, 100, $message);
         }
     }
 }

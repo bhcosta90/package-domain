@@ -8,14 +8,17 @@ use Core\Shared\Validations\DomainValidation;
 
 class NameInputObject
 {
-    public function __construct(public ?string $value, $acceptNull = false)
+    public function __construct(public ?string $value, $acceptNull = false, $field = null)
     {
+        $message = null;
+        if (!empty($field)) {
+            $message = "The value {$field} at between 3 and 255 characters";
+        }
+
         if ($acceptNull) {
-            DomainValidation::strCanNullAndMinLength($value, 3);
-            DomainValidation::strCanNullAndMaxLength($value, 255);
+            DomainValidation::strCanNullAndBetweenLength($value, 3, 255, $message);
         } else {
-            DomainValidation::strMinLength($value, 3);
-            DomainValidation::strMaxLength($value, 255);
+            DomainValidation::strBetweenLength($value, 3, 255, $message);
         }
     }
 }
