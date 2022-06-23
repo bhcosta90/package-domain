@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Core\UseCases\List;
+namespace Core\Shared\UseCases\List;
 
 class ListInput
 {

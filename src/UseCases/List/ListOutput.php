@@ -1,6 +1,6 @@
 <?php
 
-namespace Core\UseCases\List;
+namespace Core\Shared\UseCases\List;
 
 class ListOutput
 {
