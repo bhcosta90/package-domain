@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Core\Shared\ValueObjects;
+namespace Core\Shared\UseCases\Delete;
 
-class DeleteObject
+class DeleteOutput
 {
     public function __construct(
         public bool $success
