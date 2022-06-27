@@ -8,9 +8,9 @@ use Core\Shared\Abstracts\EntityAbstract;
 
 interface RepositoryInterface
 {
-    public function insert(EntityAbstract $entity): EntityAbstract;
+    public function insert(EntityAbstract $entity): bool;
 
-    public function update(EntityAbstract $entity): EntityAbstract;
+    public function update(EntityAbstract $entity): bool;
 
     public function find(string|int $key): EntityAbstract;
 
