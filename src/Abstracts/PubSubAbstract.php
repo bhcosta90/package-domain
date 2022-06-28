@@ -6,9 +6,9 @@ namespace Core\Shared\Abstracts;
 
 abstract class PubSubAbstract
 {
-    public abstract function name(): void;
+    public abstract function name(): string;
 
-    public abstract function publish(): void;
+    public abstract function publish(): array;
 
     public abstract function subscribe(array $data): void;
 }
