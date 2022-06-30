@@ -21,6 +21,4 @@ interface RepositoryInterface
     public function paginate(?array $filter = null, ?int $page = 1, ?int $totalPage = 15): PaginationInterface;
 
     public function pluck(?array $filter = null): array;
-
-    public function entity(object $input): EntityAbstract;
 }
