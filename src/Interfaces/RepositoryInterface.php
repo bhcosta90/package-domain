@@ -14,11 +14,17 @@ interface RepositoryInterface
 
     public function find(string|int $key): EntityAbstract;
 
+    public function get(string|int $key): EntityAbstract;
+
     public function exist(string|int $key): bool;
 
     public function delete(EntityAbstract $entity): bool;
 
-    public function paginate(?array $filter = null, ?int $page = 1, ?int $totalPage = 15): PaginationInterface;
+    public function paginate(
+        ?array $filter = null,
+        ?int $page = 1,
+        ?int $totalPage = 15
+    ): PaginationInterface;
 
     public function pluck(?array $filter = null): array;
 }
