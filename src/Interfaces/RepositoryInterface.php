@@ -27,4 +27,6 @@ interface RepositoryInterface
     ): PaginationInterface;
 
     public function pluck(?array $filter = null): array;
+
+    public function toEntity(object $obj): EntityAbstract;
 }
