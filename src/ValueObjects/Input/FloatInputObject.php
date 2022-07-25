@@ -16,9 +16,9 @@ class FloatInputObject
         }
 
         if ($acceptNull) {
-            DomainValidation::floatCanNullAndMin($value, 0.01, $message);
+            DomainValidation::floatCanNullAndMin($value, 0, $message);
         } else {
-            DomainValidation::floatMin($value, 0.01, $message);
+            DomainValidation::floatMin($value, 0, $message);
         }
     }
 }

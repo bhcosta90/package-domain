@@ -63,14 +63,14 @@ class DomainValidation
         }
     }
 
-    public static function floatCanNullAndMin(null|float $number, float $min = 0.01, $exceptionMessage = null)
+    public static function floatCanNullAndMin(null|float $number, float $min = 0, $exceptionMessage = null)
     {
         if ($number && $number < $min) {
             self::floatMin($number, $min, $exceptionMessage);
         }
     }
 
-    public static function floatMin(float $number, float $min = 0.01, $exceptionMessage = null)
+    public static function floatMin(float $number, float $min = 0, $exceptionMessage = null)
     {
         if ($number < $min) {
             throw new Exceptions\DomainValidationException($exceptionMessage ?? "The value must at least {$min} numeric");
